@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-base
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://istio-release.storage.googleapis.com/charts  # Istio's Helm chart repository
+    chart: base  # Name of the Istio Base chart
+    targetRevision: 1.18.0  # Specify the desired Istio version (update as needed)
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: istio-system  # Recommended namespace for Istio
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
