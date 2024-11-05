@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-csr
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://charts.jetstack.io'
+    chart: 'istio-csr'
+    targetRevision: '1.5.0'  # Replace with the appropriate version
+    helm:
+      values: |
+        istioCSR:
+          clusterID: "east-cluster"
+          enableIstioCA: true
+        vault:
+          address: "http://vault.east-cluster:8200"
+          authMethod: "token"
+          token: "root"  # Replace with a secure method of passing the token
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: istio-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  syncWave: 1  # Deploy Istio CSR after cert-manager
