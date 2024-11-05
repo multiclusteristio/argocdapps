@@ -9,13 +9,13 @@ spec:
     repoURL: https://istio-release.storage.googleapis.com/charts
     chart: istiod
     targetRevision: 1.18.0
-    helm:
-      values: |
-        global:
-          meshID: uaemesh
-          multiCluster:
-            clusterName: east-cluster
-          network: east-network          
+    # helm:
+    #   values: |
+    #     global:
+    #       meshID: uaemesh
+    #       multiCluster:
+    #         clusterName: east-cluster
+    #       network: east-network          
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-system
