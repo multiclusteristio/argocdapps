@@ -14,4 +14,4 @@ spec:
         role: cert-manager-role
         serviceAccountRef:
           name: cert-manager
-          namespace: cert-manage
+          namespace: istio-issuer
