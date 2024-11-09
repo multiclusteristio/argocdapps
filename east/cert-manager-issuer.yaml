@@ -1,0 +1,17 @@
+# apiVersion: cert-manager.io/v1
+# kind: Issuer
+# metadata:
+#   name: vault-issuer
+#   namespace: cert-manager
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "5"  
+# spec:
+#   vault:
+#     path: pki/sign/istio-role
+#     server: "http://vault.east.svc.cluster.local:8200"  # Vault server URL in the east cluster
+#     auth:
+#       kubernetes:
+#         role: cert-manager-role
+#         serviceAccountRef:
+#           name: cert-manager
+#           namespace: cert-manage

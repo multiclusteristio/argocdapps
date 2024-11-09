@@ -2,5 +2,18 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: istio-system
+  labels:
+    istio.io/cluster-id: east
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager
+  labels:
+    istio.io/cluster-id: east
   annotations:
     argocd.argoproj.io/sync-wave: "-1"

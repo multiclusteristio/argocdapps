@@ -8,6 +8,18 @@ spec:
   source:
     repoURL: https://istio-release.storage.googleapis.com/charts  # Istio's Helm chart repository
     chart: base  # Name of the Istio Base chart
+    helm:
+      parameters:
+        - name: values.global.certProvider
+          value: "cert-manager"
+        - name: values.global.controlPlaneSecurityEnabled
+          value: "true"
+        - name: values.global.mtls.enabled
+          value: "true"
+        # - name: values.global.tracer.zipkin.address
+        #   value: "zipkin.istio-system:9411"
+        - name: values.pilot.env.ISTIO_META_CERT_PROVIDER
+          value: "cert-manager"    
     targetRevision: 1.18.0  # Specify the desired Istio version (update as needed)
   destination:
     server: https://kubernetes.default.svc

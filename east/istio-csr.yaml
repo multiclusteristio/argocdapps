@@ -9,15 +9,6 @@ spec:
     repoURL: 'https://charts.jetstack.io'
     chart: 'istio-csr'
     targetRevision: '1.5.0'  # Replace with the appropriate version
-    helm:
-      values: |
-        istioCSR:
-          clusterID: "east-cluster"
-          enableIstioCA: true
-        vault:
-          address: "http://vault.east-cluster:8200"
-          authMethod: "token"
-          token: "root"  # Replace with a secure method of passing the token
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: istio-system
