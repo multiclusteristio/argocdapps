@@ -13,5 +13,5 @@ spec:
       kubernetes:
         role: cert-manager-role
         serviceAccountRef:
-          name: cert-manager
-          namespace: istio-issuer
+          name: istio-issuer
+          namespace: cert-manager
