@@ -19,8 +19,8 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: cert-manager
-  namespace: istio-system
+  name: vault-issuer
+  namespace: cert-manager
 spec:
   vault:
     server: http://vault.vault.svc.cluster.local:8200
