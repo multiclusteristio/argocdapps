@@ -9,6 +9,7 @@ spec:
     repoURL: 'https://charts.jetstack.io'
     chart: 'cert-manager'
     targetRevision: 'v1.13.0'  # Replace with the appropriate version
+    # targetRevision: 'v1.16.§'  # Replace with the appropriate version    
     helm:
       values: |
         installCRDs: true

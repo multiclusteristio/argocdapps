@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://charts.jetstack.io'
     chart: 'istio-csr'
-    targetRevision: '1.5.0'  # Replace with the appropriate version
+    targetRevision: 'v0.12.0'  # Replace with the appropriate version
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: istio-system
