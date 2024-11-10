@@ -9,7 +9,7 @@ spec:
     path: pki/sign/istio-ca-role
     auth:
       kubernetes:
-        mountPath: /v1/auth/pki
+        mountPath: /v1/auth/east
         role: istio-cert-issuer
         secretRef:
           name: istio-cert-issuer
