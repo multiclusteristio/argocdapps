@@ -1,18 +1,18 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: manifests
-  namespace: argocd
-spec:
-  destination:
-    namespace: argocd
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    repoURL: https://github.com/multiclusteristio/argocdapps.git
-    path: east/manifests
-    targetRevision: main
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: manifests
+#   namespace: argocd
+# spec:
+#   destination:
+#     namespace: argocd
+#     server: https://kubernetes.default.svc
+#   project: default
+#   source:
+#     repoURL: https://github.com/multiclusteristio/argocdapps.git
+#     path: east/manifests
+#     targetRevision: main
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
