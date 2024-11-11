@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "5"
-    argocd.argoproj.io/depends-on: "istio-base"  
+    argocd.argoproj.io/depends-on: "istiod"  
 spec:
   project: default
   source:
