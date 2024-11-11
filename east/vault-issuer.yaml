@@ -3,6 +3,9 @@ kind: Issuer
 metadata:
   name: istio-ca
   namespace: istio-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "6"  
+    argocd.argoproj.io/depends-on: "cert-manager"       
 spec:
   vault:
     server: http://vault.vault.svc.cluster.local:8200
