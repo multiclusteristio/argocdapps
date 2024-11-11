@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/multiclusteristio/argocdapps.git
     path: east/manifests
-    targetRevision: HEAD
+    targetRevision: main
   syncPolicy:
     automated:
       prune: true
