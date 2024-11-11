@@ -3,18 +3,15 @@ kind: Application
 metadata:
   name: istio-ingressgateway
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/depends-on: "istiod" 
 spec:
   project: default
   source:
     repoURL: https://istio-release.storage.googleapis.com/charts
     chart: gateway
-    targetRevision: 1.18.0  # Specify the desired Istio version (update as needed)
-    helm:
-      parameters:
-        - name: global.istioNamespace
-          value: istio-system
-        - name: gateways.istio-ingressgateway.enabled
-          value: "true"
+    targetRevision: 1.23.3  # Specify the desired Istio version (update as needed)
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-system

@@ -3,22 +3,21 @@ kind: Application
 metadata:
   name: cert-manager
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
     repoURL: 'https://charts.jetstack.io'
     chart: 'cert-manager'
-    targetRevision: 'v1.13.0'  # Replace with the appropriate version
-    # targetRevision: 'v1.16.§'  # Replace with the appropriate version    
+    targetRevision: 'v1.16.0'  
     helm:
       values: |
-        installCRDs: true
-        extraArgs:
-          - --enable-certificate-owner-ref=true
-        webhook:
-          enabled: true
-        controller:
-          logLevel: debug          
+        global:
+          logLevel: 6
+        certManager:
+          crds:
+            enabled: true
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: cert-manager
@@ -26,4 +25,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  syncWave: 0  # Deploy cert-manager first

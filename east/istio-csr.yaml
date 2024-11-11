@@ -3,12 +3,14 @@ kind: Application
 metadata:
   name: istio-csr
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
     repoURL: 'https://charts.jetstack.io'
     chart: 'cert-manager-istio-csr'
-    targetRevision: 'v0.12.0'  # Replace with the appropriate version
+    targetRevision: 'v0.12.0'
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: istio-system
@@ -16,4 +18,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  syncWave: 1  # Deploy Istio CSR after cert-manager
