@@ -15,9 +15,8 @@ spec:
       values: |
         global:
           logLevel: 6
-        certManager:
-          crds:
-            enabled: true
+        crds:
+          enabled: true
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: cert-manager
