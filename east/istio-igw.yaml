@@ -4,8 +4,8 @@ metadata:
   name: istio-ingressgateway
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
-    argocd.argoproj.io/depends-on: "istiod" 
+    argocd.argoproj.io/sync-wave: "5"
+    argocd.argoproj.io/depends-on: "istio-base"  
 spec:
   project: default
   source:

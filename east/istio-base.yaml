@@ -4,8 +4,8 @@ metadata:
   name: istio-base
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
-    argocd.argoproj.io/depends-on: "istio-csr"    
+    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/depends-on: "cert-manager"    
 spec:
   project: default
   source:
