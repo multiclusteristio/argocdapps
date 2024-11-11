@@ -1,31 +1,31 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: istio-base
-  namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "4"
-    argocd.argoproj.io/depends-on: "istio-csr"    
-spec:
-  project: default
-  source:
-    repoURL: https://istio-release.storage.googleapis.com/charts 
-    chart: base  # Name of the Istio Base chart
-    helm:
-      parameters:
-        - name: values.global.certProvider
-          value: "cert-manager"
-        - name: values.global.controlPlaneSecurityEnabled
-          value: "true"
-        - name: values.global.mtls.enabled
-          value: "true"
-        - name: values.pilot.env.ISTIO_META_CERT_PROVIDER
-          value: "cert-manager"    
-    targetRevision: 1.23.3 
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: istio-system
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: istio-base
+#   namespace: argocd
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "4"
+#     argocd.argoproj.io/depends-on: "istio-csr"    
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://istio-release.storage.googleapis.com/charts 
+#     chart: base  # Name of the Istio Base chart
+#     helm:
+#       parameters:
+#         - name: values.global.certProvider
+#           value: "cert-manager"
+#         - name: values.global.controlPlaneSecurityEnabled
+#           value: "true"
+#         - name: values.global.mtls.enabled
+#           value: "true"
+#         - name: values.pilot.env.ISTIO_META_CERT_PROVIDER
+#           value: "cert-manager"    
+#     targetRevision: 1.23.3 
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: istio-system
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true

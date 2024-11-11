@@ -24,3 +24,9 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true    
+  healthChecks:
+    - kind: Deployment
+      name: cert-manager
+      healthy: true        

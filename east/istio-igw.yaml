@@ -1,21 +1,21 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: istio-ingressgateway
-  namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "6"
-    argocd.argoproj.io/depends-on: "istiod"  
-spec:
-  project: default
-  source:
-    repoURL: https://istio-release.storage.googleapis.com/charts
-    chart: gateway
-    targetRevision: 1.23.3  # Specify the desired Istio version (update as needed)
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: istio-system
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: istio-ingressgateway
+#   namespace: argocd
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "6"
+#     argocd.argoproj.io/depends-on: "istiod"  
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://istio-release.storage.googleapis.com/charts
+#     chart: gateway
+#     targetRevision: 1.23.3  # Specify the desired Istio version (update as needed)
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: istio-system
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
