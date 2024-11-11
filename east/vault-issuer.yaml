@@ -1,16 +1,16 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: vault-issuer
+  name: istio-ca
   namespace: istio-system
 spec:
   vault:
     server: http://vault.vault.svc.cluster.local:8200
-    path: pki/sign/istio-ca-role
+    path: pki/sign/istio-ca-east
     auth:
       kubernetes:
         mountPath: /v1/auth/east
-        role: istio-cert-issuer
+        role: issuer
         secretRef:
-          name: istio-cert-issuer
-          key: token
+          name: issuer-token-lmzpj
+          key: token        
