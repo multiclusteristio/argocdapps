@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/multiclusteristio/argocdapps.git
-    path: manifests
+    path: east/manifests
     targetRevision: HEAD
   syncPolicy:
     automated:
